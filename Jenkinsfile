@@ -14,7 +14,7 @@ pipeline {
         stage ('build-frontend'){
             steps {
                 sh 'cd client'
-                sh 'node --max_old_space_size=4096 npm run build -- --prod'
+                sh 'npm run build -- --prod'
                 sh 'echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
