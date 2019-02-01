@@ -13,9 +13,9 @@ pipeline {
 
         stage ('build-frontend'){
             steps {
-                sh 'cd client'
-                sh 'npm run build -- --prod'
-                sh 'echo "FRONTEND BUILD SUCCESSFULL"'
+                sh '''cd client
+                npm run build -- --prod
+                echo "FRONTEND BUILD SUCCESSFULL"'''
             }
         }
 
