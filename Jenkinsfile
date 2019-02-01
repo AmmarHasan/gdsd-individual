@@ -4,13 +4,6 @@ pipeline {
        NODE_ENV = "production"
     }
     stages {
-        stage ('git'){
-            steps {
-                sh 'node -v'
-                sh 'npm -v'
-                sh 'env'
-            }
-        }
         stage ('install-dependencies') {
             steps {
               sh 'npm install'
@@ -20,15 +13,14 @@ pipeline {
 
         stage ('build-frontend'){
             steps {
-                sh 'cd client && npm i && node --max_old_space_size=4096 ./node_modules/.bin/ng build --prod'
+                sh 'cd client && npm i && node --max_old_space_size=4096 ng build --prod'
                 sh 'echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
         stage ('test-frontend'){
             steps {
-                // sh 'cd client'
-                sh 'cd client && ./node_modules/.bin/ng test'
-                sh 'cd client && ./node_modules/.bin/ng e2e'
+                sh 'cd client && ng test'
+                sh 'cd client && ng e2e'
             }
         }
     }
