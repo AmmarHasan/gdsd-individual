@@ -14,15 +14,15 @@ pipeline {
         stage ('build-frontend'){
             steps {
                 sh 'cd client'
-                sh 'sudo npm install -g @angular/cli@6.0.8'
-                sh 'node --max_old_space_size=4096 ng build --prod'
+                sh 'node --max_old_space_size=4096 npm run build -- --prod'
                 sh 'echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
+
         stage ('test-frontend'){
             steps {
-                sh 'cd client && ng test'
-                sh 'cd client && ng e2e'
+                sh 'cd client && npm run test'
+                sh 'cd client && npm run e2e'
             }
         }
     }
