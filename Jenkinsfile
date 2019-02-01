@@ -13,7 +13,7 @@ pipeline {
 
         stage ('build-frontend'){
             steps {
-                sh 'cd client && npm install @angular-devkit/build-angular@~0.6.1 && npm run build -- --prod && echo "FRONTEND BUILD SUCCESSFULL"'
+                sh 'cd client && npm i && npm install @angular-devkit/build-angular@~0.6.1 && ./node_modules/.bin/ng -v && ls node_modules && npm run build -- --prod && echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
 
