@@ -14,7 +14,7 @@ pipeline {
         stage ('build-frontend'){
             steps {
                 sh 'cd client'
-                sh 'npm install -g @angular/cli@6.0.8'
+                sh 'sudo npm install -g @angular/cli@6.0.8'
                 sh 'node --max_old_space_size=4096 ng build --prod'
                 sh 'echo "FRONTEND BUILD SUCCESSFULL"'
             }
