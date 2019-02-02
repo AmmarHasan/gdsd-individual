@@ -7,7 +7,7 @@ pipeline {
         stage ('install-dependencies') {
             steps {
               sh 'npm install'
-              sh 'cd client && npm install'
+              sh 'cd client && NODE_ENV=development npm install'
             }
         }
 
