@@ -13,7 +13,7 @@ pipeline {
 
         stage ('build-frontend'){
             steps {
-                sh 'cd client && npm i && ls node_modules && npm run build -- --prod && echo "FRONTEND BUILD SUCCESSFULL"'
+                sh 'cd client && ls node_modules && npm run build -- --prod && echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
 
