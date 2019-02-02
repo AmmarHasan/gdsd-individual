@@ -6,6 +6,7 @@ export class AppPage {
   }
 
   getBrandText() {
+    browser.waitForAngular();
     return element(by.css('mat-toolbar')).getText();
   }
 }

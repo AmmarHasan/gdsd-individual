@@ -6,6 +6,7 @@ export class CategoryPage {
   }
 
   getCategoriesText() {
+    browser.waitForAngular();
     return element(by.css('mat-nav-list')).all(by.css('.mat-list-item-content')).getText();
   }
 }
