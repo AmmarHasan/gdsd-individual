@@ -110,6 +110,11 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "youBuy:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "youBuy:serve:production"
+            }
           }
         },
         "lint": {

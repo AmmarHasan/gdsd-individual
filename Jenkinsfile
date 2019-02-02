@@ -20,7 +20,7 @@ pipeline {
         stage ('test-frontend'){
             steps {
                 sh 'cd client && npm run test'
-                sh 'cd client && npm run e2e'
+                sh 'cd client && npm run e2e -- --prod'
             }
         }
     }

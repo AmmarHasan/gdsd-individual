@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ExpectedConditions as EC } from 'protractor';
 
 export class CategoryPage {
   navigateTo() {
@@ -6,7 +6,6 @@ export class CategoryPage {
   }
 
   getCategoriesText() {
-    browser.waitForAngular();
-    return element(by.css('mat-nav-list')).all(by.css('.mat-list-item-content')).getText();
+    return element.all(by.css('mat-nav-list')).first().all(by.css('.mat-list-item-content')).getText();
   }
 }
