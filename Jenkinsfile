@@ -7,20 +7,20 @@ pipeline {
         stage ('install-dependencies') {
             steps {
               sh 'npm install'
-              sh 'cd client && npm install'
+              sh 'cd client && NODE_ENV=development npm install'
             }
         }
 
         stage ('build-frontend'){
             steps {
-                sh 'cd client && npm i && node --max_old_space_size=4096 ng build --prod'
-                sh 'echo "FRONTEND BUILD SUCCESSFULL"'
+                sh 'cd client && ls node_modules && npm run build -- --prod && echo "FRONTEND BUILD SUCCESSFULL"'
             }
         }
+
         stage ('test-frontend'){
             steps {
-                sh 'cd client && ng test'
-                sh 'cd client && ng e2e'
+                sh 'cd client && npm run test'
+                sh 'cd client && npm run e2e'
             }
         }
     }
